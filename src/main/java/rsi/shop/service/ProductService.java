@@ -60,4 +60,9 @@ public class ProductService {
     public int getProductsCount() {
         return productRepository.findAll().size();
     }
+
+    public Product getProductByName(String name) {
+        return productRepository.findByName(name).orElseThrow(() -> new NoSuchElementException("Product with name: " + name +
+                " not found"));
+    }
 }

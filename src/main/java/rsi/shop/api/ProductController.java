@@ -37,6 +37,12 @@ public class ProductController {
         return ResponseEntity.ok(productService.getAllProducts());
     }
 
+    @GetMapping("/products/filter")
+    @Operation(summary = "Get product by name", description = "Get product by name")
+    public ResponseEntity<Product> getProductByName(@RequestParam String name) {
+        return ResponseEntity.ok(productService.getProductByName(name));
+    }
+
     @PostMapping("/products")
     @Operation(summary = "Add product", description = "Add product")
     public ResponseEntity<Product> addProduct(@RequestBody ProductDTO productDTO) {
